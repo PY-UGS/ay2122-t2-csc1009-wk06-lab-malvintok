@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Random;
 
 public class LinkedListMain {
     public LinkedListMain() {}
@@ -17,6 +18,8 @@ public class LinkedListMain {
         }
         addAndSort(list, 6);
         swapValues(list, 2, 5);
+        LinkedList<Integer> newList = generateRandList(500, 1000, 9999);
+        findValue(newList, generateRandNum(1000, 9999));
     }
 
     public static void addAndSort(LinkedList<Integer> list, int value){
@@ -49,5 +52,21 @@ public class LinkedListMain {
         }
     }
 
-    public void findValue(LinkedList<Integer> list, int searchVal){}
+    public static void findValue(LinkedList<Integer> list, int searchVal){
+        System.out.println("\nIndex of " + searchVal + " is: " + list.indexOf(searchVal));
+    }
+
+    public static LinkedList<Integer> generateRandList(int numOfValue, int startValue, int endValue) {
+        Random randNum = new Random();
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        for (int count = 0; count < numOfValue; count++) {
+            list.add(randNum.nextInt(endValue - startValue) + startValue);
+        }
+        return list;
+    }
+
+    public static int generateRandNum(int startValue, int endValue) {
+        Random randNum = new Random();
+        return randNum.nextInt(endValue - startValue) + startValue;
+    }
 }
