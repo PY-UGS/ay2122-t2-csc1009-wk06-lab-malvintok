@@ -11,13 +11,25 @@ public class LinkedListMain {
         list.add(7);
         list.add(9);
         list.add(11);
-        System.out.print("List before adding: ");
+        System.out.println("List before adding: ");
+        for (int index = 0; index < list.size(); index++){
+            System.out.print(list.get(index) + " ");
+        }
+        addAndSort(list, 6);
+    }
+
+    public static void addAndSort(LinkedList<Integer> list, int value){
+        for (int index = 0; index < list.size(); index++){
+            if(value >= list.get(index) && value < list.get(index + 1)){
+                list.add(index + 1, value);
+                break;
+            }
+        }
+        System.out.println("\nList after adding: ");
         for (int index = 0; index < list.size(); index++){
             System.out.print(list.get(index) + " ");
         }
     }
-
-    public void addAndSort(LinkedList<Integer> list, int value){}
 
     public void swapValues(LinkedList<Integer> list, int indexOne, int indexTwo){}
 
